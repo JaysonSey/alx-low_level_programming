@@ -1,19 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 /**
- * main - Prints the alphabet.
- *
+ * main - main block
+ * Description: Get a random letter and print it
  * Return: 0
  */
 int main(void)
 {
-	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
+	char c = 'a';
 
-	int 1;
-
-	for (i = 0; i < 26; i++)
+	while (c <= 'z')
 	{
-		putchar(alp[i]);
+		putchar(c);
+		c++;
 	}
+
 	putcahr('\n');
 	return (0);
 }
