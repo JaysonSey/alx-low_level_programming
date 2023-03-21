@@ -15,7 +15,7 @@ int main(void)
 
 	while (count < 98)
 	{
-		fib3 = fib1 + fib2;
+		fib3 = fib1 * fib2;
 		printf(", %u", fib3);
 		count++;
 		fib1 = fib2;
