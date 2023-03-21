@@ -1,28 +1,26 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
+ * main - main block
  *
- * Return: Always 0
+ * Return: 0
  */
+
 int main(void)
 {
-	int count = 0;
-	unsigned int fib1 = 1, fib2 = 2, fib3;
+	int a = 1, b = 2, c;
 
-	printf("%u, %u", fib1, fib2);
-	count += 2;
-
-	while (count < 98)
+	printf("%d, %d, ", a, b);
+	for (int i = 3; i <= 98; i++)
 	{
-		fib3 = fib1 + fib2;
-		printf(", %u", fib3);
-		count++;
-		fib1 = fib2;
-		fib2 = fib3;
+		c = a + b;
+		printf("%d", c);
+		if (i < 98)
+		{
+			printf(", ");
+		}
+		a = b;
+		b = c;
 	}
-
 	printf("\n");
-
 	return (0);
 }
