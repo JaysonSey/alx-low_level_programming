@@ -10,7 +10,7 @@ int main(void)
 	int a = 1, b = 2, c;
 
 	printf("%d, %d, ", a, b);
-	for (i = 3; i <= 98; i++)
+	for (c = 3; c <= 98; c++)
 	{
 		c = a + b;
 		printf("%d", c);
