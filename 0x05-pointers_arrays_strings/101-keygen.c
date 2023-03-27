@@ -10,39 +10,24 @@
 
 int main(void)
 {
-	char password[6];
-	int sum, i;
+        int pass[100];
+	int i, sum, n;
+
+	sum = 0;
 
 	srand(time(NULL));
 
-	while (1)
+	for (i = 0; i < 100; i++)
 	{
-		for (i = 0; i < 5; i++)
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
 		{
-			password[i] = rand() % ('~' - ' ' + 1) + ' ';
-		}
-		password[5] = '\0';
-
-		sum = 0;
-		for (i = 0; i < 5; i++)
-		{
-			sum += password[i];
-		}
-
-		for (i = 0; i < 5; i++)
-		{
-			password[i] = (sum % password[i]) + 0x1F;
-		}
-
-		sum = 0;
-		for (i = 0; i < 5; i++)
-		{
-			sum += password[i];
-		}
-		if (sum == 2772)
-		{
-			printf("%s\n", password);
-			exit(0);
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
 		}
 	}
 
