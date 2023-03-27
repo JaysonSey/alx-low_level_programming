@@ -10,43 +10,41 @@
 
 int main(void)
 {
-	char password[84];
-	int i = 0, sum = 0, diff_half1, diff_half2;
+	char password[6];
+	int sum, i;
 
-	srand(time(0));
+	srand(time(NULL));
 
-	while (sum < 272)
+	while (1)
 	{
-		password[i] = 33 + rand() % 94;
-		sum += password[i++];
-	}
-
-	password[i] = '\0';
-
-	if (sum != 2772)
-	{
-		diff_half1 = (sum - 2772) / 2;
-		diff_half2 = (sum - 2772) / 2;
-
-		if ((sum - 2772) % 2 != 0)
-			diff_half1++;
-
-		for (i = 0; password[i]; i++)
+		for (i = 0; i < 5; i++)
 		{
-			if (password[i] >= (33 + diff_half1))
-			{
-				password[i] -= diff_half1;
-				break;
-			}
+			password[i] = rand() % ('~' - ' ' + 1) + ' ';
 		}
-		for (i = 0; password[i]; i++)
-		{
-			if (password[i] >= (33 + diff_half2))
+		password[5] = '\0';
 
-				password[i] -= diff_half2;
-			break;
+		sum = 0;
+		for (i = 0; i < 5; i++)
+		{
+			sum += password[i];
+		}
+
+		for (i = 0; i < 5; i++)
+		{
+			password[i] = (sum % password[i]) + 0x1F;
+		}
+
+		sum = 0;
+		for (i = 0; i < 5; i++)
+		{
+			sum += password[i];
+		}
+		if (sum == 2772)
+		{
+			printf("%s\n", password);
+			exit(0);
 		}
 	}
-	printf("%s", password);
+
 	return (0);
 }
