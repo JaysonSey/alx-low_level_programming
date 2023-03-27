@@ -2,7 +2,7 @@
 
 /**
  * _strlen -  a function that returns the length of a string.
- * @str: the string to get the length
+ * @s: Pointer to the first character of a string
  *
  * Return: length of string
  */
